@@ -1,5 +1,7 @@
 package takahiro.miyamoto.dlnv.mapper
 
+import org.apache.ibatis.annotations.Mapper
+import org.apache.ibatis.annotations.Select
 import takahiro.miyamoto.dlnv.domain.PublicSafetyCommission
 
 @Mapper
