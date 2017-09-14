@@ -1,0 +1,19 @@
+server:
+  port: 8080
+  context-path: /
+spring:
+  profiles:
+    active: dev
+  datasource:
+    url: jdbc:mysql://database:3306/license?useUnicode=true&charaterEncoding=utf-8
+    driver-class-name: com.mysql.jdbc.Driver
+    username: number
+    password: validator
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 0
+      idle-timeout: 100000
+      max-lifetime: 3000000
+      read-only: false
+      connection-init-sql: "SET SESSION sql_mode='TRADITIONAL,NO_AUTO_VALUE_ON_ZERO,ONLY_FULL_GROUP_BY'"
