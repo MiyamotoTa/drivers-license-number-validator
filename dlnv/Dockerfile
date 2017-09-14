@@ -1,0 +1,11 @@
+FROM gradle:alpine AS appserver
+USER root
+RUN apk add --update --no-cache libstdc++
+COPY . .
+RUN gradle build -x test
+
+FROM java:8-jdk-alpine
+RUN adduser -Dh /home/validator validator
+WORKDIR /app
+COPY --from=appserver /home/gradle/build/libs/dlnv-0.0.1-SNAPSHOT.jar .
+ENTRYPOINT ["java", "-jar", "/app/dlnv-0.0.1-SNAPSHOT.jar"]
