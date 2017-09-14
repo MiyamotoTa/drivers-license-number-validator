@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/dlnv/dlnv.iml" filepath="$PROJECT_DIR$/dlnv/dlnv.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/dlnv_main.iml" filepath="$PROJECT_DIR$/.idea/modules/dlnv_main.iml" group="dlnv" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/dlnv_test.iml" filepath="$PROJECT_DIR$/.idea/modules/dlnv_test.iml" group="dlnv" />
+      <module fileurl="file://$PROJECT_DIR$/drivers-license-number-validator.iml" filepath="$PROJECT_DIR$/drivers-license-number-validator.iml" />
+    </modules>
+  </component>
+</project>

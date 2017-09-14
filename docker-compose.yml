@@ -1,0 +1,32 @@
+version: '3.3'
+services:
+  database:
+    image: mysql:5.7
+    ports:
+      - "3306:3306"
+    networks:
+      - back
+    volumes:
+      - ./mysql/conf.d:/etc/mysql/conf.d
+      - ./mysql/initdb.d:/docker-entrypoint-initdb.d
+    environment:
+      MYSQL_DATABASE: license
+      MYSQL_USER: number
+      MYSQL_PASSWORD: validator
+      MYSQL_ROOT_PASSWORD: password
+  appserver:
+    build:
+      context: ./dlnv
+      dockerfile: Dockerfile
+    image: dlnv_app
+    user: validator
+    ports:
+      - "8080:8080"
+    networks:
+      - front
+      - back
+networks:
+  default:
+    driver: bridge
+  front:
+  back:
