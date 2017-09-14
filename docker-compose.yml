@@ -18,6 +18,8 @@ services:
     build:
       context: ./dlnv
       dockerfile: Dockerfile
+    depends_on:
+      - database
     image: dlnv_app
     user: validator
     ports:
