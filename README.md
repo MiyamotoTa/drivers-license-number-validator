@@ -30,9 +30,11 @@
 ## docker-composeについて
 docker-compose.yml をアプリケーションルートに配備してあります。
 DockerComposeのプロジェクト名が長い場合に、MySQLコンテナがbuffer overflowしてしまいます。 [参考](https://github.com/docker-library/mysql/issues/243)
-その回避策として `-p` オプションを使いDockerComposeが生成するコンテナ名のプレフィックスを短くする必要があります。
+その回避策として下記のように `-p` オプションを使いDockerComposeが生成するコンテナ名のプレフィックスを短くする必要があります。
 
 ```bash
-docker-compose -p dlnv build
-docker-compose -p dlnv up
+docker-compose -p dlnv up --build
 ```
+
+### デバッグ用 docker-compose
+リモートデバッグ用に5005番ポートを開けたコンテナをたてる `docker-compose-dev.yml` を配備しています。
