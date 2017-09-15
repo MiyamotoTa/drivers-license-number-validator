@@ -1,8 +1,8 @@
-package takahiro.miyamoto.dlnv.mapper
+package takahiro.miyamoto.dlnv.infrastructure.persistence
 
 import org.apache.ibatis.annotations.Mapper
 import org.apache.ibatis.annotations.Select
-import takahiro.miyamoto.dlnv.domain.PublicSafetyCommission
+import takahiro.miyamoto.dlnv.domain.model.license.PublicSafetyCommission
 
 @Mapper
 interface PublicSafetyCommissionMapper {
