@@ -12,6 +12,10 @@ class NumberValidationServiceImpl : NumberValidationService {
             return false
         }
 
+        if (!validateControlNumber(licenseNumber)) {
+            return false
+        }
+
         return true
     }
 
@@ -22,4 +26,12 @@ class NumberValidationServiceImpl : NumberValidationService {
      * @return 免許証取得年が有効であればTrueを返す
      */
     private fun validateLicenseAcquisitionYear(licenseNumber: LicenseNumber): Boolean = licenseNumber.licenseAcquisitionYear in 0..99
+
+    /**
+     * 免許証管理番号が有効範囲内かどうかを検証する
+     *
+     * @param licenseNumber 免許証番号
+     * @return 免許証管理番号が有効であればTrueを返す
+     */
+    private fun validateControlNumber(licenseNumber: LicenseNumber) = licenseNumber.controlNumber in 0..999999
 }
