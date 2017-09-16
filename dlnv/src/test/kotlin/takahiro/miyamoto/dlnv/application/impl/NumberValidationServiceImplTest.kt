@@ -39,6 +39,32 @@ class NumberValidationServiceImplTest {
         assertFalse(maxYearActual)
     }
 
+    @Test fun validateValidRangeOfControlNumber() {
+        // 管理用番号 6桁
+        val min = 0
+        val minLicense = getDefaultLicense(controlNumber = min)
+        val minActual = numberValidationService.validate(minLicense)
+        assertTrue(minActual)
+
+        val max = 999999
+        val maxLicense = getDefaultLicense(controlNumber = max)
+        val maxActual = numberValidationService.validate(maxLicense)
+        assertTrue(maxActual)
+    }
+
+    @Test fun validateInvalidRangeOfControlNumber() {
+        // 管理用番号 6桁
+        val min = -1
+        val minLicense = getDefaultLicense(controlNumber = min)
+        val minActual = numberValidationService.validate(minLicense)
+        assertFalse(minActual)
+
+        val max = 1000000
+        val maxLicense = getDefaultLicense(controlNumber = max)
+        val maxActual = numberValidationService.validate(maxLicense)
+        assertFalse(maxActual)
+    }
+
     private fun getDefaultLicense(
             publicSafetyCommission: PublicSafetyCommission = PublicSafetyCommission(10, "test"),
             licenseAcquisitionYear: Int = 0,
