@@ -21,7 +21,7 @@ class LicenseNumberValidationServiceImpl(
 
         val license = LicenseNumber(publicSafetyCommission, licenseAcquisitionYear, controlNumber, checkDigit, reissuesNumber)
 
-        return license.validateLicenseAcquisitionYear() && license.validateControlNumber() && license.validateCheckDigit() && license.validateReissuesNumber()
+        return license.validatePublicSafetyCommission() && license.validateLicenseAcquisitionYear() && license.validateControlNumber() && license.validateCheckDigit() && license.validateReissuesNumber()
     }
 
 }
