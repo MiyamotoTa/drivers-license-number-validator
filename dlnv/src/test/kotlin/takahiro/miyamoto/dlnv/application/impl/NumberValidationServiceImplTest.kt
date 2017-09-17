@@ -109,6 +109,33 @@ class NumberValidationServiceImplTest {
         }
     }
 
+    @Test
+    fun validateValidRangeOfReissuesNumber() {
+        // 再発行回数1桁
+        val min = 0
+        val minLicense = getDefaultLicense(reissuesNumber = min)
+        val minActual = numberValidationService.validate(minLicense)
+        assertTrue(minActual)
+
+        val max = 9
+        val maxLicense = getDefaultLicense(reissuesNumber = max)
+        val maxActual = numberValidationService.validate(maxLicense)
+        assertTrue(maxActual)
+    }
+
+    @Test
+    fun validateInvalidRangeOfReissuesNumber() {
+        // 再発行回数1桁
+        val min = -1
+        val minLicense = getDefaultLicense(reissuesNumber = min)
+        val minActual = numberValidationService.validate(minLicense)
+        assertFalse(minActual)
+
+        val max = 10
+        val maxLicense = getDefaultLicense(reissuesNumber = max)
+        val maxActual = numberValidationService.validate(maxLicense)
+        assertFalse(maxActual)
+    }
 
     private fun getDefaultLicense(
             publicSafetyCommission: PublicSafetyCommission = PublicSafetyCommission(10, "test"),
