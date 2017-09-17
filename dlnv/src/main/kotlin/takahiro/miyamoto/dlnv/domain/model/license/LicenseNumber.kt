@@ -11,12 +11,19 @@ package takahiro.miyamoto.dlnv.domain.model.license
  * @author miyamoto_ta
  */
 data class LicenseNumber(
-        private val publicSafetyCommission: PublicSafetyCommission,
+        private val publicSafetyCommission: PublicSafetyCommission?,
         private val licenseAcquisitionYear: Int,
         private val controlNumber: Int,
         private val checkDigit: Int,
         private val reissuesNumber: Int
 ) {
+    /**
+     * 公安委員会番号が有効化どうかを検証する
+     *
+     * @return 公安委員会番号が有効であればTrueを返す
+     */
+    fun validatePublicSafetyCommission(): Boolean = publicSafetyCommission != null
+
     /**
      * 免許証取得年が有効範囲内かどうかを検証する
      *
@@ -37,6 +44,10 @@ data class LicenseNumber(
      * @return チェックディジットが正しければTrueを返す
      */
     fun validateCheckDigit(): Boolean {
+        if (publicSafetyCommission == null) {
+            return false
+        }
+
         val checkValue = publicSafetyCommission.id.format("%02d") + licenseAcquisitionYear.format("%02d") + controlNumber.format("%06d")
 
         return checkDigit == calcCheckDigit(checkValue.toLong())

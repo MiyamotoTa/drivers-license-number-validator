@@ -8,6 +8,24 @@ import org.junit.Test
  */
 class LicenseNumberTest {
     @Test
+    fun validateNonNullPublicSafetyCommision() {
+        val license = getDefaultLicense()
+
+        val actual = license.validatePublicSafetyCommission()
+        assertTrue(actual)
+    }
+
+    @Test
+    fun validateNullPublicSafetyCommision() {
+        val license = getDefaultLicense(
+                publicSafetyCommission = null
+        )
+
+        val actual = license.validatePublicSafetyCommission()
+        assertFalse(actual)
+    }
+
+    @Test
     fun validateValidRangeOfLicenseAcquisitionYear() {
         // 免許証取得年の下二桁なので範囲は0-99
         val minYear = 0
@@ -132,7 +150,7 @@ class LicenseNumberTest {
     }
 
     private fun getDefaultLicense(
-            publicSafetyCommission: PublicSafetyCommission = PublicSafetyCommission(10, "test"),
+            publicSafetyCommission: PublicSafetyCommission? = PublicSafetyCommission(10, "test"),
             licenseAcquisitionYear: Int = 0,
             controlNumber: Int = 123456,
             checkDigit: Int = 6,
