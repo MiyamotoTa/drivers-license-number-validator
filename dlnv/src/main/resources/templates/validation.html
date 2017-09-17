@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>運転免許証番号チェックツール</title>
+</head>
+<body>
+    <form action="#" th:action="@{/license/validation}" method="post">
+        <p>運転免許証番号: <input type="text" name="license" /></p>
+        <input type="submit" value="click" />
+    </form>
+    <p th:text="${result}" ></p>
+</body>
+</html>
