@@ -11,11 +11,11 @@ package takahiro.miyamoto.dlnv.domain.model.license
  * @author miyamoto_ta
  */
 data class LicenseNumber(
-        val publicSafetyCommission: PublicSafetyCommission,
-        val licenseAcquisitionYear: Int,
-        val controlNumber: Int,
-        val checkDigit: Int,
-        val reissuesNumber: Int
+        private val publicSafetyCommission: PublicSafetyCommission,
+        private val licenseAcquisitionYear: Int,
+        private val controlNumber: Int,
+        private val checkDigit: Int,
+        private val reissuesNumber: Int
 ) {
     /**
      * 免許証取得年が有効範囲内かどうかを検証する
