@@ -20,6 +20,9 @@ class NumberValidationServiceImpl : NumberValidationService {
             return false
         }
 
+        if (!validateReissuesNumber(licenseNumber)) {
+            return false
+        }
         return true
     }
 
@@ -71,4 +74,6 @@ class NumberValidationServiceImpl : NumberValidationService {
             11 - remainder
         }
     }
+
+    private fun validateReissuesNumber(licenseNumber: LicenseNumber) = licenseNumber.reissuesNumber in 0..9
 }
