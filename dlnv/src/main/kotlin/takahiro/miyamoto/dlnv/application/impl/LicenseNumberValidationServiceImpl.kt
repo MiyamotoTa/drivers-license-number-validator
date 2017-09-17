@@ -1,15 +1,15 @@
 package takahiro.miyamoto.dlnv.application.impl
 
-import takahiro.miyamoto.dlnv.application.NumberValidationService
+import takahiro.miyamoto.dlnv.application.LicenseNumberValidationService
 import takahiro.miyamoto.dlnv.domain.model.license.LicenseNumber
 import takahiro.miyamoto.dlnv.infrastructure.persistence.PublicSafetyCommissionMapper
 
 /**
  * @author miyamoto_ta
  */
-class NumberValidationServiceImpl(
+class LicenseNumberValidationServiceImpl(
         private val publicSafetyCommissionMapper: PublicSafetyCommissionMapper
-) : NumberValidationService {
+) : LicenseNumberValidationService {
     override fun validate(publicSafetyCommissionId: Int,
                           licenseAcquisitionYear: Int,
                           controlNumber: Int,
