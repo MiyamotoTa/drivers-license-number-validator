@@ -1,5 +1,6 @@
 package takahiro.miyamoto.dlnv.application.impl
 
+import org.springframework.stereotype.Service
 import takahiro.miyamoto.dlnv.application.LicenseNumberValidationService
 import takahiro.miyamoto.dlnv.domain.model.license.LicenseNumber
 import takahiro.miyamoto.dlnv.infrastructure.persistence.PublicSafetyCommissionMapper
@@ -7,6 +8,7 @@ import takahiro.miyamoto.dlnv.infrastructure.persistence.PublicSafetyCommissionM
 /**
  * @author miyamoto_ta
  */
+@Service
 class LicenseNumberValidationServiceImpl(
         private val publicSafetyCommissionMapper: PublicSafetyCommissionMapper
 ) : LicenseNumberValidationService {
