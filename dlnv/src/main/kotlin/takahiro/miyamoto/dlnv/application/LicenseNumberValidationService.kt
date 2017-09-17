@@ -4,7 +4,7 @@ package takahiro.miyamoto.dlnv.application
  * 免許証番号検証サービス
  * @author miyamoto_ta
  */
-interface NumberValidationService {
+interface LicenseNumberValidationService {
     /**
      * 免許証番号を検証する.
      * @property publicSafetyCommissionId 都道府県公安委員会
