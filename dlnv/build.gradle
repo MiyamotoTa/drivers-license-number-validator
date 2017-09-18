@@ -41,6 +41,7 @@ dependencies {
     compile('io.github.microutils:kotlin-logging:1.4.6')
     compile('ch.qos.logback:logback-classic:1.2.3')
 
+    compile('org.springframework.boot:spring-boot-devtools')
     compile('org.springframework.boot:spring-boot-starter-thymeleaf')
     compile('org.springframework.boot:spring-boot-starter-web')
     compile("org.jetbrains.kotlin:kotlin-stdlib-jre8:${kotlinVersion}")
@@ -54,6 +55,10 @@ dependencies {
     testCompile('org.hamcrest:hamcrest-library')
     testCompile('org.hamcrest:hamcrest-core')
     testCompile('com.h2database:h2')
+}
+
+bootRun {
+    addResources = true
 }
 
 test {
