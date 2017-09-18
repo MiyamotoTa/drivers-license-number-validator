@@ -17,6 +17,16 @@ data class LicenseNumber(
         private val checkDigit: Int,
         private val reissuesNumber: Int
 ) {
+    companion object {
+        /**
+         * 免許証番号のフォーマットが正しいか判定する.
+         *
+         * @param licenseNumber 免許証番号
+         * @return 免許証番号が正しいフォーマットであればTrueを返す
+         */
+        fun validateFormat(licenseNumber: String): Boolean = """^\d{12}$""".toRegex().containsMatchIn(licenseNumber)
+    }
+
     /**
      * 公安委員会番号が有効化どうかを検証する
      *

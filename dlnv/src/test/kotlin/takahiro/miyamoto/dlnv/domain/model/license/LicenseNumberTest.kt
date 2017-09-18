@@ -1,12 +1,31 @@
 package takahiro.miyamoto.dlnv.domain.model.license
 
-import org.junit.Assert.*
+import org.junit.Assert.assertFalse
+import org.junit.Assert.assertTrue
 import org.junit.Test
 
 /**
  * @author miyamoto_ta
  */
 class LicenseNumberTest {
+    @Test
+    fun validateFormat() {
+        var actual = LicenseNumber.validateFormat("123456789012")
+        assertTrue(actual)
+
+        actual = LicenseNumber.validateFormat("12345678901")
+        assertFalse(actual)
+
+        actual = LicenseNumber.validateFormat("1234567890123")
+        assertFalse(actual)
+
+        actual = LicenseNumber.validateFormat("abcdefghijkl")
+        assertFalse(actual)
+
+        actual = LicenseNumber.validateFormat("")
+        assertFalse(actual)
+    }
+
     @Test
     fun validateNonNullPublicSafetyCommision() {
         val license = getDefaultLicense()
