@@ -38,3 +38,8 @@ docker-compose -p dlnv up --build
 
 ### デバッグ用 docker-compose
 リモートデバッグ用に5005番ポートを開けたコンテナをたてる `docker-compose-dev.yml` を配備しています。
+
+----
+
+## 運転免許証検証ツール
+ツールのURLは `http://localhost:8080/license/validation` です。
